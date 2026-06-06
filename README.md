@@ -46,4 +46,3 @@ Output zip lands in `~/PixelOS_annibale/out/target/product/annibale/`.
 - PixelOS-AOSP
 - LineageOS
 - xiaomi-annibale device tree maintainers
-- voxonage (Aperture UltraHDR fix)

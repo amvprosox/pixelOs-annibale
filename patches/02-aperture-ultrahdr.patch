@@ -1,0 +1,26 @@
+diff --git a/app/src/main/java/org/lineageos/aperture/repositories/PreferencesRepository.kt b/app/src/main/java/org/lineageos/aperture/repositories/PreferencesRepository.kt
+index 5cabc85..92d34a0 100644
+--- a/app/src/main/java/org/lineageos/aperture/repositories/PreferencesRepository.kt
++++ b/app/src/main/java/org/lineageos/aperture/repositories/PreferencesRepository.kt
+@@ -144,7 +144,7 @@ class PreferencesRepository(
+      */
+     val usePhotoJpegUltraHdr = primitivePreference(
+         key = "use_photo_jpeg_ultra_hdr",
+-        defaultValue = true,
++        defaultValue = false,
+     ).asPreferenceHolder()
+ 
+     /**
+diff --git a/app/src/main/res/xml/root_preferences.xml b/app/src/main/res/xml/root_preferences.xml
+index e3f847b..a19c82a 100644
+--- a/app/src/main/res/xml/root_preferences.xml
++++ b/app/src/main/res/xml/root_preferences.xml
+@@ -65,7 +65,7 @@
+             app:title="@string/enable_zsl_title" />
+ 
+         <SwitchPreference
+-            app:defaultValue="true"
++            app:defaultValue="false"
+             app:iconSpaceReserved="false"
+             app:key="use_photo_jpeg_ultra_hdr"
+             app:summary="@string/use_photo_jpeg_ultra_hdr_summary"

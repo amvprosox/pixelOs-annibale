@@ -1,0 +1,30 @@
+diff --git a/Android.bp b/Android.bp
+index 5069d3a..af0644a 100644
+--- a/Android.bp
++++ b/Android.bp
+@@ -804,3 +804,25 @@ java_library {
+         "frameworks/telephony-common-stub/src/**/*.java",
+     ],
+ }
++
++cc_prebuilt_library_shared {
++    name: "libtinyxml2-v36",
++    ignore_max_page_size: true,
++    vendor: true,
++    strip: {
++        none: true,
++    },
++    shared_libs: [
++        "liblog",
++        "libc++",
++        "libc",
++        "libm",
++        "libdl",
++    ],
++    target: {
++        android_arm64: {
++            srcs: ["vndk/v36/arm64/libtinyxml2-v36.so"],
++        },
++    },
++    compile_multilib: "64",
++}

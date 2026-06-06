@@ -1,0 +1,63 @@
+diff --git a/AndroidProducts.mk b/AndroidProducts.mk
+index ff72279..709d101 100644
+--- a/AndroidProducts.mk
++++ b/AndroidProducts.mk
+@@ -1,7 +1,6 @@
+-#
+-# SPDX-FileCopyrightText: The LineageOS Project
+-# SPDX-License-Identifier: Apache-2.0
+-#
+-
+ PRODUCT_MAKEFILES := \
+-    $(LOCAL_DIR)/lineage_annibale.mk
++    $(LOCAL_DIR)/aosp_annibale.mk
++
++COMMON_LUNCH_CHOICES := \
++    aosp_annibale-bp4a-userdebug \
++    aosp_annibale-bp4a-user
+diff --git a/BoardConfig.mk b/BoardConfig.mk
+index 873101e..0f5940a 100644
+--- a/BoardConfig.mk
++++ b/BoardConfig.mk
+@@ -94,13 +94,12 @@ BOARD_BOOTCONFIG := \
+ 
+ # Kernel prebuilt
+ PREBUILT_PATH := device/xiaomi/annibale-kernel
++TARGET_PREBUILT_KERNEL := $(PREBUILT_PATH)/images/kernel
++PRODUCT_COPY_FILES += $(PREBUILT_PATH)/images/kernel:kernel
+ TARGET_NO_KERNEL_OVERRIDE := true
+ TARGET_KERNEL_SOURCE := $(PREBUILT_PATH)/kernel-headers
+ BOARD_PREBUILT_DTBIMAGE_DIR := $(PREBUILT_PATH)/images/dtbs/
+ BOARD_PREBUILT_DTBOIMAGE := $(PREBUILT_PATH)/images/dtbo.img
+-PRODUCT_COPY_FILES += \
+-	$(PREBUILT_PATH)/images/kernel:kernel
+-
+ # Kernel modules
+ GKI_VERSION := 6.6.77-android15-8-g4a507830d890-ab13636293-4k
+ DLKM_MODULES_PATH := $(PREBUILT_PATH)/modules/vendor_dlkm
+@@ -250,3 +249,5 @@ WPA_SUPPLICANT_VERSION := VER_0_8_X
+ 
+ # Inherit the proprietary files
+ include vendor/xiaomi/annibale/BoardConfigVendor.mk
++
++include vendor/lineage/config/BoardConfigLineage.mk
+diff --git a/device.mk b/device.mk
+index 5849670..814f8af 100644
+--- a/device.mk
++++ b/device.mk
+@@ -155,7 +155,7 @@ PRODUCT_COPY_FILES += \
+ 
+ # Dolby
+ PRODUCT_PACKAGES += \
+-    XiaomiDolby
++#     XiaomiDolby
+ 
+ # DRM
+ PRODUCT_PACKAGES += \
+@@ -502,3 +502,6 @@ PRODUCT_COPY_FILES += \
+ 
+ # Inherit the proprietary files
+ $(call inherit-product, vendor/xiaomi/annibale/annibale-vendor.mk)
++
++
++PRODUCT_SOONG_NAMESPACES += hardware/qcom-caf/wlan/qcwcn

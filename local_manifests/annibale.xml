@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<manifest>
+  <project name="xiaomi-annibale/android_device_xiaomi_annibale"
+           path="device/xiaomi/annibale"
+           remote="github"
+           revision="lineage-23.2" />
+  <project name="xiaomi-annibale/android_device_xiaomi_annibale-kernel"
+           path="device/xiaomi/annibale-kernel"
+           remote="github"
+           revision="lineage-23.2" />
+  <project name="android-kernels/xiaomi-annibale-w-oss"
+           path="kernel/xiaomi/annibale"
+           remote="github"
+           revision="annibale-w-oss" />
+  <project name="xiaomi-annibale/android_hardware_xiaomi"
+           path="hardware/xiaomi"
+           remote="github"
+           revision="lineage-23.2" />
+<remove-project name="PixelOS-AOSP/android_system_sepolicy" />
+<project name="LineageOS/android_system_sepolicy" path="system/sepolicy" remote="github" revision="lineage-23.2" />
+</manifest>
